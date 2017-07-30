@@ -83,7 +83,6 @@ class Source(Base):
             # r'syntax match vimNumber /\d\+\.(\d\+(\.)\?)*/'
             r'syntax match vimNumber /\d\+\(\.\d\+\)\+/'
         )
-        12.2.3.444.2
         self.vim.command(syn_var_name)
         self.vim.command(syn_hash_num)
         self.vim.command(syn_dot_num)
