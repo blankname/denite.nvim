@@ -80,7 +80,7 @@ class Source(Base):
         )
         syn_dot_num = (
             # r'syntax match vimNumber /\d\+\.(\.|\d*)\+/'
-            r'syntax match vimNumber /\d\+\.(\d\+(\.)?)*/'
+            r'syntax match vimNumber /\d\+\.(\d\+(\.)\?)*/'
         )
         self.vim.command(syn_var_name)
         self.vim.command(syn_hash_num)
