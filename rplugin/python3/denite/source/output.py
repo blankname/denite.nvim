@@ -81,17 +81,11 @@ class Source(Base):
         syn_dot_num = (
             # r'syntax match vimNumber /\d\+\.(\.|\d*)\+/'
             # r'syntax match vimNumber /\d\+\.(\d\+(\.)\?)*/'
-            r'syntax match vimNumber /\d\+\./'
-        )
-        syn_dot_num1 = (
-            # r'syntax match vimNumber /\d\+\.(\.|\d*)\+/'
-            # r'syntax match vimNumber /\d\+\.(\d\+(\.)\?)*/'
-            r'syntax match vimNumber /\.\zs\d\+/'
+            r'syntax match vimNumber /\d\+\.\d\+/'
         )
         self.vim.command(syn_var_name)
         self.vim.command(syn_hash_num)
         self.vim.command(syn_dot_num)
-        self.vim.command(syn_dot_num1)
 
         # let_hi = (
         #     # 'syntax cluster deniteSource_outputLetCluster' +
