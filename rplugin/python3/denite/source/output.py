@@ -21,6 +21,8 @@ class Source(Base):
         cmd = self.context['args'][0]
         if re.fullmatch(r'hi(ghlight)?(!)?', cmd):
             self.define_syntax_for_highlight(cmd)
+        if re.match(r'^let($| )', cmd):
+            self.define_syntax_for_let()
 
     def gather_candidates(self, context):
         args = context['args']
@@ -62,3 +64,38 @@ class Source(Base):
             )
             self.vim.command(syn_hi_name)
             self.vim.command(syn_hi_xxx)
+
+    def define_syntax_for_let(self):
+        self.vim.command('syntax include syntax/vim.vim')
+        syn_var_name = (
+            r'syntax match vimVar /^\s*\S\+/' +
+            ' nextgroup=deniteSource_outputLetAll' +
+            ' skipwhite'
+        )
+
+        # FIXME:
+        # is there a more elegant way to do an include like this?
+        #
+        # why doesn't it work for me to just have vimNumber and vimOperGroup
+        # in nextgroup of syn_var_name above?
+        #
+        # also why don't I get string highlighting when I use vimString instead
+        # of vimOperGroup?
+        #
+        # can't get vimFuncName highlighting working
+        syn_include = (
+            r'syntax match deniteSource_outputLetAll /.*/' +
+            ' contains=@vimNumber,@vimOperGroup' +
+            ' contained'
+        )
+
+        syn_hash_num = (
+            r'syntax match vimNumber /#-\?\d\+\ze$/'
+        )
+        syn_dot_num = (
+            r'syntax match vimNumber /\d\+\(\.\d\+\)\+\ze$/'
+        )
+        self.vim.command(syn_var_name)
+        self.vim.command(syn_include)
+        self.vim.command(syn_hash_num)
+        self.vim.command(syn_dot_num)
