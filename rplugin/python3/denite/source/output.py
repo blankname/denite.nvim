@@ -66,9 +66,12 @@ class Source(Base):
             self.vim.command(syn_hi_xxx)
 
     def define_syntax_for_let(self):
-        self.vim.command('set syntax=vim')
+        # self.vim.command('set syntax=vim')
         self.vim.command('syntax include syntax/vim.vim')
-        syn_var_name = 'syntax match vimVar /\h[a-zA-Z0-9#_]*\>/'
+        syn_var_name = (
+            'syntax match vimVar /\h[a-zA-Z0-9#_]*\>/' +
+            'nextgroup=@vimNumber'
+        )
         self.vim.command(syn_var_name)
 
         # let_hi = (
