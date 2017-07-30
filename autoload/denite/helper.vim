@@ -77,6 +77,7 @@ endfunction
 function! denite#helper#_parse_options_args(cmdline) abort
   let _ = []
   let [args, options] = s:parse_options(a:cmdline)
+
   for arg in args
     " Add source name.
     let source_name = matchstr(arg, '^[^:]*')
@@ -84,6 +85,22 @@ function! denite#helper#_parse_options_args(cmdline) abort
     let source_args = source_arg  ==# '' ? [] :
           \  map(split(source_arg, '\\\@<!:', 1),
           \      'substitute(v:val, ''\\\(.\)'', "\\1", ''g'')')
+    let source_args = []
+    if source_arg !=# ''
+      for s in split(source_arg, '\\\@<!:', 1)
+        let s = substitute(s, '\\\(.\)', '\\1', 'g')
+
+        " remove leading/ending quote pairs
+        if s[0] == '"' && s[len(s) - 1] == '"'
+          let s = s[1: len(s) - 2]
+        endif
+        if s[0] == "'" && s[len(s) - 1] == "'"
+          let s = s[1: len(s) - 2]
+        endif
+
+        call add(source_args, s)
+      endfor
+    endif
     call add(_, { 'name': source_name, 'args': source_args })
   endfor
 
@@ -97,7 +114,13 @@ function! s:parse_options(cmdline) abort
   let cmdline = (a:cmdline =~# '\\\@<!`.*\\\@<!`') ?
         \ s:eval_cmdline(a:cmdline) : a:cmdline
 
-  for arg in split(cmdline, '\%(\\\@<!\s\)\+')
+  " Don't split on spaces that are in between unescaped single or double
+  " quotes
+  let split_re = '\v\s\ze([^"' . "'" . '\\]*(\\.|"([^"\\]*\\.)*[^"\\]*"|'
+        \ . "'" . '([^' . "'" . '\\]*\\.)*[^' . "'" . '\\]*' . "'" . '))*[^"'
+        \ . "'" . ']*$'
+
+  for arg in split(cmdline, split_re)
     let arg = substitute(arg, '\\\( \)', '\1', 'g')
     let arg_key = substitute(arg, '=\zs.*$', '', '')
 
