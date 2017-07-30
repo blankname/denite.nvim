@@ -71,7 +71,7 @@ class Source(Base):
         syn_var_name = (
             # 'syntax match vimVar /^\h[a-zA-Z0-9#_]*\>/' +
             r'syntax match vimVar /^\s*\S\+\ze /' +
-            ' nextgroup=@vimNumber,@vimString' +
+            ' nextgroup=@vimNumber,@vimEscapeBrace' +
             ' skipwhite'
         )
         syn_hash_num = (
