@@ -21,6 +21,8 @@ class Source(Base):
         cmd = self.context['args'][0]
         if re.fullmatch(r'hi(ghlight)?(!)?', cmd):
             self.define_syntax_for_highlight(cmd)
+        if re.match(r'^let ', cmd):
+            self.define_syntax_for_let()
 
     def gather_candidates(self, context):
         args = context['args']
@@ -62,3 +64,11 @@ class Source(Base):
             )
             self.vim.command(syn_hi_name)
             self.vim.command(syn_hi_xxx)
+
+    def define_syntax_for_let(self):
+        self.vim.command('syntax include syntax/vim.vim')
+        let_hi = (
+            'syntax cluster contains=@vimStringGroup'
+        )
+        self.vim.command(let_hi)
+
