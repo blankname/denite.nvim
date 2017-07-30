@@ -68,7 +68,7 @@ class Source(Base):
     def define_syntax_for_let(self):
         self.vim.command('syntax include syntax/vim.vim')
         let_hi = (
-            'syntax cluster deniteSource_outputLetCluster' +
+            # 'syntax cluster deniteSource_outputLetCluster' +
             'syntax cluster vimString' +
             ' contains=@vimStringGroup'
         )
