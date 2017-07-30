@@ -75,7 +75,7 @@ class Source(Base):
             ' skipwhite'
         )
         syn_hash_num = (
-            r'syntax match vimNumber /#\x* /'
+            r'syntax match vimNumber /#\d*( |$)/'
         )
         self.vim.command(syn_var_name)
         self.vim.command(syn_hash_num)
