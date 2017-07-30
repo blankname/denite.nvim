@@ -69,7 +69,8 @@ class Source(Base):
         self.vim.command('syntax include syntax/vim.vim')
         let_hi = (
             'syntax cluster deniteSource_outputLetCluster' +
-            ' contains=@vimStringGroup'
+            ' contains=@vimString'
         )
         self.vim.command(let_hi)
+        self.vim.command('echom "here"')
 
