@@ -70,11 +70,15 @@ class Source(Base):
         self.vim.command('syntax include syntax/vim.vim')
         syn_var_name = (
             # 'syntax match vimVar /^\h[a-zA-Z0-9#_]*\>/' +
-            'syntax match vimVar /^\s*\S*\ze /' +
+            r'syntax match vimVar /^\s*\S*\ze /' +
             ' nextgroup=@vimNumber' +
             ' skipwhite'
         )
+        syn_hash_num = (
+            r'syntax match vimNumber /#\x* /'
+        )
         self.vim.command(syn_var_name)
+        self.vim.command(syn_hash_num)
 
         # let_hi = (
         #     # 'syntax cluster deniteSource_outputLetCluster' +
