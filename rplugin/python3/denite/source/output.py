@@ -75,13 +75,14 @@ class Source(Base):
             ' skipwhite'
         )
         syn_hash_num = (
-            r'syntax match vimNumber /#-\?\d\+\ze$/'
+            r'syntax match vimNumber /#-\?\d\+\(\s|$\)/'
+            # r'syntax match vimNumber /#-\?\d\+\ze$/'
             # r'syntax match vimNumber /#-\?\d\+\ze([^\S]|$)*/'
         )
         syn_dot_num = (
             # r'syntax match vimNumber /\d\+\.(\.|\d*)\+/'
             # r'syntax match vimNumber /\d\+\.(\d\+(\.)\?)*/'
-            r'syntax match vimNumber /\d\+\(\.\d\+\)\+\ze$/'
+            r'syntax match vimNumber /\d\+\(\.\d\+\)\+\(\s|$\)/'
         )
         self.vim.command(syn_var_name)
         self.vim.command(syn_hash_num)
