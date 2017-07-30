@@ -77,9 +77,8 @@ class Source(Base):
         syn_hash_num = (
             r'syntax match vimNumber /#\d\+( |$)/'
         )
-        #8
-        self.vim.command(syn_hash_num)
         self.vim.command(syn_var_name)
+        self.vim.command(syn_hash_num)
 
         # let_hi = (
         #     # 'syntax cluster deniteSource_outputLetCluster' +
