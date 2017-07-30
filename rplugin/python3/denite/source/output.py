@@ -70,12 +70,12 @@ class Source(Base):
         self.vim.command('syntax include syntax/vim.vim')
         syn_var_name = (
             # 'syntax match vimVar /^\h[a-zA-Z0-9#_]*\>/' +
-            r'syntax match vimVar /^\s*\S+\ze /' +
+            r'syntax match vimVar /^\s*\S\+\ze /' +
             ' nextgroup=@vimNumber' +
             ' skipwhite'
         )
         syn_hash_num = (
-            r'syntax match vimNumber /#\d+( |$)/'
+            r'syntax match vimNumber /#\d\+( |$)/'
         )
         #8
         self.vim.command(syn_hash_num)
