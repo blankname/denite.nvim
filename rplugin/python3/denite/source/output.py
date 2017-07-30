@@ -72,5 +72,4 @@ class Source(Base):
             ' contains=@vimStringGroup'
         )
         self.vim.command(let_hi)
-        self.vim.command('echom here')
 
