@@ -21,7 +21,7 @@ class Source(Base):
         cmd = self.context['args'][0]
         if re.fullmatch(r'hi(ghlight)?(!)?', cmd):
             self.define_syntax_for_highlight(cmd)
-        if re.match(r'^let ', cmd):
+        if re.match(r'^let($| )', cmd):
             self.define_syntax_for_let()
 
     def gather_candidates(self, context):
@@ -71,4 +71,5 @@ class Source(Base):
             'syntax cluster contains=@vimStringGroup'
         )
         self.vim.command(let_hi)
+        self.vim.command('echom here')
 
