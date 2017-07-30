@@ -75,7 +75,7 @@ class Source(Base):
             ' skipwhite'
         )
         syn_hash_num = (
-            r'syntax match vimNumber /#-\?\d\+\ze([^\S]\+|$)/'
+            r'syntax match vimNumber /#-\?\d\+\ze([^\S]|$)\+/'
         )
         # syn_dot_num = (
         #     r'syntax match vimNumber /(-\?\d\+\s*$/'
