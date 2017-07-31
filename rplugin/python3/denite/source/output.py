@@ -73,8 +73,8 @@ class Source(Base):
         syn_var_name = (
             # 'syntax match vimVar /^\h[a-zA-Z0-9#_]*\>/' +
             r'syntax match vimVar /^\s*\S\+\ze /' +
-            ' nextgroup=@vimFilter' +
-            # ' nextgroup=@vimOperGroup,@vimFuncName' +
+            # ' nextgroup=@vimFilter' +
+            ' nextgroup=@vimOperGroup,@vimFuncName' +
             # ' nextgroup=@vimFuncBodyList,@vimFuncList' +
             ' skipwhite'
         )
