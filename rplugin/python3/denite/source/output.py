@@ -73,12 +73,12 @@ class Source(Base):
         syn_var_name = (
             # 'syntax match vimVar /^\h[a-zA-Z0-9#_]*\>/' +
             r'syntax match vimVar /^\s*\S\+\ze /' +
-            ' nextgroup=@vimOperGroup'
+            ' nextgroup=@vimOperGroup' +
             # ' nextgroup=@vimFilter' +
             # ' nextgroup=@vimOperGroup,@vimFilter' +
             # ' nextgroup=@vimSep,@vimString' +
             # ' nextgroup=@vimFuncBodyList,@vimFuncList' +
-            # ' skipwhite'
+            ' skipwhite'
         )
 
         # syn_cluster = (
