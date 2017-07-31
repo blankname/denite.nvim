@@ -72,10 +72,8 @@ class Source(Base):
         self.vim.command('syntax include syntax/vim.vim')
         syn_var_name = (
             # 'syntax match vimVar /^\h[a-zA-Z0-9#_]*\>/' +
-            # r'syntax match vimVar /^\s*\S\+\ze /' +
-            r'syntax match deniteAllThings /*/' +
-            ' contains=@vimOperParen' +
-            # ' nextgroup=@vimOperParen' +
+            r'syntax match vimVar /^\s*\S\+\ze /' +
+            ' nextgroup=@vimOperParen' +
             # ' nextgroup=@vimOperGroup' +
             # ' nextgroup=@vimFilter' +
             # ' nextgroup=@vimOperGroup,@vimFilter' +
