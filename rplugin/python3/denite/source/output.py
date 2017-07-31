@@ -87,7 +87,7 @@ class Source(Base):
         # is there a more elegant way to do an include like this?
         syn_include = (
             r'syntax match allThings /.*/' +
-            ' contains=@vimVar,@vimNumber,@vimOperGroup'
+            ' contains=vimVar,@vimNumber,@vimOperGroup'
         )
 
         # syn_cluster = (
