@@ -74,7 +74,7 @@ class Source(Base):
             # 'syntax match vimVar /^\h[a-zA-Z0-9#_]*\>/' +
             r'syntax match vimVar /^\s*\S\+\ze /' +
             # ' nextgroup=@vimFilter' +
-            ' nextgroup=@vimOperGroup,@vimFuncName' +
+            ' nextgroup=@vimOperGroup,@vimFilter' +
             # ' nextgroup=@vimFuncBodyList,@vimFuncList' +
             ' skipwhite'
         )
