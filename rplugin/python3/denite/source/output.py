@@ -84,7 +84,7 @@ class Source(Base):
             # ' nextgroup=@vimOperGroup,@vimFilter' +
             # ' nextgroup=@vimSep,@vimString' +
             # ' nextgroup=@vimFuncBodyList,@vimFuncList' +
-            # ' oneline' +
+            ' oneline' +
             ' skipwhite'
         )
 
