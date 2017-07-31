@@ -67,7 +67,7 @@ class Source(Base):
 
     def define_syntax_for_let(self):
         # need string, list, dictionary
-        # self.vim.command('set syntax=vim')
+        self.vim.command('set syntax=vim')
         # why doesn't quickfixsigns_class_rel exhibit the prob?
         self.vim.command('syntax include syntax/vim.vim')
         syn_var_name = (
@@ -141,10 +141,10 @@ class Source(Base):
             # r'syntax match vimNumber /\d\+\(\.\d\+\)\+\(\s|$\)/'
             r'syntax match vimNumber /\d\+\(\.\d\+\)\+\ze$/'
         )
-        self.vim.command(syn_var_name)
-        self.vim.command(syn_include)
-        self.vim.command(syn_hash_num)
-        self.vim.command(syn_dot_num)
+        # self.vim.command(syn_var_name)
+        # self.vim.command(syn_include)
+        # self.vim.command(syn_hash_num)
+        # self.vim.command(syn_dot_num)
 
         # self.vim.command(syn_oper_group_new_end)
         # self.vim.command(syn_string_new_end_single)
