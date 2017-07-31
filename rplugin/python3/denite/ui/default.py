@@ -193,7 +193,7 @@ class Default(object):
             'number': False,
             'relativenumber': False,
             'winfixheight': True,
-            'wrap': False,
+            'wrap': True,
         }
         if self._context['cursorline']:
             window_options['cursorline'] = True
@@ -426,7 +426,8 @@ class Default(object):
         encoding = self._context['encoding']
         abbr = candidate.get('abbr', candidate['word']).encode(
             encoding, errors='replace').decode(encoding, errors='replace')
-        terms.append(abbr[:int(self._context['max_candidate_width'])])
+        terms.append(abbr)
+        # terms.append(abbr[:int(self._context['max_candidate_width'])])
         return (self._context['selected_icon']
                 if index in self._selected_candidates
                 else ' ') + ' '.join(terms)
