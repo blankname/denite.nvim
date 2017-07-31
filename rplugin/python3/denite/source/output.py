@@ -81,7 +81,7 @@ class Source(Base):
         )
 
         syn_cluster = (
-            'syntax cluster ouputCluster contains=@vimSep,@vimString'
+            'syntax cluster ouputCluster contains=@vimOperGroup'
         )
         self.vim.command(syn_cluster)
 
