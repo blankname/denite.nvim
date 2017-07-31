@@ -68,6 +68,7 @@ class Source(Base):
     def define_syntax_for_let(self):
         # need string, list, dictionary
         # self.vim.command('set syntax=vim')
+        self.vim.command('syntax match LonelyQuote /\'/')
         self.vim.command('syntax include syntax/vim.vim')
         syn_var_name = (
             # 'syntax match vimVar /^\h[a-zA-Z0-9#_]*\>/' +
@@ -105,7 +106,6 @@ class Source(Base):
         # self.vim.command(syn_string_new_end_double)
         self.vim.command(syn_hash_num)
         self.vim.command(syn_dot_num)
-        self.vim.command('syntax match LonelyQuote /\'/')
 
         # let_hi = (
         #     # 'syntax cluster deniteSource_outputLetCluster' +
