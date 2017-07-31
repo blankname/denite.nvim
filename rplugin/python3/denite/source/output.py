@@ -79,12 +79,12 @@ class Source(Base):
         # to avoid trying to match over multiple lines/results
         syn_oper_group_new_end = (
             # r'syntax region vimOperGroup oneline start=/{/ end=/}/ end=/$/'
-            r'syntax region vimOperGroup oneline start=/{/ end=/}/ end=/$/' +
+            r'syntax region vimOperGroup oneline start=/{/ end=/}/ end=/$/'
+        )
+        syn_string_new_end_single = (
+            r'syntax region vimString start=/\'/ end=/\'/ end=/$/' +
             ' contains=@vimVar'
         )
-        # syn_string_new_end_single = (
-        #     r'syntax region vimString start=/\'/ end=/\'/ end=/$/'
-        # )
         # syn_string_new_end_double = (
         #     r'syntax region vimString start=/"/ end=/"/ end=/$/'
         # )
@@ -101,8 +101,8 @@ class Source(Base):
             r'syntax match vimNumber /\d\+\(\.\d\+\)\+\ze$/'
         )
         self.vim.command(syn_var_name)
-        self.vim.command(syn_oper_group_new_end)
-        # self.vim.command(syn_string_new_end_single)
+        # self.vim.command(syn_oper_group_new_end)
+        self.vim.command(syn_string_new_end_single)
         # self.vim.command(syn_string_new_end_double)
         self.vim.command(syn_hash_num)
         self.vim.command(syn_dot_num)
