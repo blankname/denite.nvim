@@ -90,23 +90,24 @@ class Source(Base):
         )
 
             # syn region	vimString	oneline keepend	start=+[^:a-zA-Z>!\\@]"+lc=1 skip=+\\\\\|\\"+ end=+"+	contains=@vimStringGroup
-        syn_string = (
-            r"syn region" +
-            r" vimString oneline keepend start=+[^:a-zA-Z>!\\@]'+lc=1 end=+'+"
-        )
+        # syn_string = (
+        #     r"syn region" +
+        #     r" vimString oneline keepend start=+[^:a-zA-Z>!\\@]'+lc=1 end=+'+"
+        # )
 
-        self.vim.command(syn_string)
+        # self.vim.command(syn_string)
         # self.vim.command('hi link vimString String')
         # is there a more elegant way to do an include like this?
         # why isn't vimFuncName working
-        # syn_include = (
-        #     r'syntax match allThings /.*/' +
-        #     # ' contains=@vimNumber,@vimParenSep' +
-        #     # ' contains=@vimNumber,@vimSep' +
-        #     ' contains=@vimNumber,@vimOperGroup' +
-        #     ' oneline' +
-        #     ' contained'
-        # )
+        syn_include = (
+            r'syntax match allThings /.*/' +
+            # ' contains=@vimNumber,@vimParenSep' +
+            # ' contains=@vimNumber,@vimSep' +
+            ' contains=@vimNumber,@vimString' +
+            # ' contains=@vimNumber,@vimOperGroup' +
+            ' oneline' +
+            ' contained'
+        )
 
         # syn_cluster = (
         #     'syntax cluster vimOperGroup contains=@vimOperGroup'
@@ -141,7 +142,7 @@ class Source(Base):
             r'syntax match vimNumber /\d\+\(\.\d\+\)\+\ze$/'
         )
         self.vim.command(syn_var_name)
-        # self.vim.command(syn_include)
+        self.vim.command(syn_include)
         self.vim.command(syn_hash_num)
         self.vim.command(syn_dot_num)
 
