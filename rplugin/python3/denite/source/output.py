@@ -68,7 +68,7 @@ class Source(Base):
     def define_syntax_for_let(self):
         # need string, list, dictionary
         # self.vim.command('set syntax=vim')
-        self.vim.command('syntax match LonelyQuote /\'/')
+        self.vim.command("syntax match LonelyQuote /'/")
         self.vim.command('syntax include syntax/vim.vim')
         syn_var_name = (
             # 'syntax match vimVar /^\h[a-zA-Z0-9#_]*\>/' +
