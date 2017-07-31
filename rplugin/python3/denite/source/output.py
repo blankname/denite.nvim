@@ -73,18 +73,18 @@ class Source(Base):
         syn_var_name = (
             # 'syntax match vimVar /^\h[a-zA-Z0-9#_]*\>/' +
             r'syntax match vimVar /^\s*\S\+\ze /' +
-            # ' nextgroup=@vimOperGroup' +
-            ' nextgroup=@vimFilter' +
+            ' nextgroup=@vimOperGroup' +
+            # ' nextgroup=@vimFilter' +
             # ' nextgroup=@vimOperGroup,@vimFilter' +
             # ' nextgroup=@vimSep,@vimString' +
             # ' nextgroup=@vimFuncBodyList,@vimFuncList' +
             ' skipwhite'
         )
 
-        # syn_cluster = (
-        #     'syntax cluster vimOperGroup contains=@vimOperGroup'
-        # )
-        # self.vim.command(syn_cluster)
+        syn_cluster = (
+            'syntax cluster vimOperGroup'
+        )
+        self.vim.command(syn_cluster)
 
         # to avoid trying to match over multiple lines/results
         # syn_oper_group_new_end = (
