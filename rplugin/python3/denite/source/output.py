@@ -67,7 +67,7 @@ class Source(Base):
 
     def define_syntax_for_let(self):
         # need string, list, dictionary
-        self.vim.command('set syntax=vim')
+        # self.vim.command('set syntax=vim')
         self.vim.command('syntax include syntax/vim.vim')
         syn_var_name = (
             # 'syntax match vimVar /^\h[a-zA-Z0-9#_]*\>/' +
@@ -77,14 +77,13 @@ class Source(Base):
         )
 
         # to avoid trying to match over multiple lines/results
-        syn_oper_group_new_end = (
-            # r'syntax region vimOperGroup oneline start=/{/ end=/}/ end=/$/'
-            r'syntax region vimOperGroup oneline start=/{/ end=/}/ end=/$/'
-        )
-        syn_string_new_end_single = (
-            r'syntax region vimString start=/\'/ end=/\'/ end=/$/' +
-            ' contains=@vimVar'
-        )
+        # syn_oper_group_new_end = (
+        #     # r'syntax region vimOperGroup oneline start=/{/ end=/}/ end=/$/'
+        #     r'syntax region vimOperGroup oneline start=/{/ end=/}/ end=/$/'
+        # )
+        # syn_string_new_end_single = (
+        #     r'syntax region vimString start=/\'/ end=/\'/ end=/$/'
+        # )
         # syn_string_new_end_double = (
         #     r'syntax region vimString start=/"/ end=/"/ end=/$/'
         # )
@@ -102,7 +101,7 @@ class Source(Base):
         )
         self.vim.command(syn_var_name)
         # self.vim.command(syn_oper_group_new_end)
-        self.vim.command(syn_string_new_end_single)
+        # self.vim.command(syn_string_new_end_single)
         # self.vim.command(syn_string_new_end_double)
         self.vim.command(syn_hash_num)
         self.vim.command(syn_dot_num)
