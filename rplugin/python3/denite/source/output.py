@@ -73,6 +73,7 @@ class Source(Base):
         syn_var_name = (
             # 'syntax match vimVar /^\h[a-zA-Z0-9#_]*\>/' +
             r'syntax match vimVar /^\s*\S\+\ze /'
+            ' nextgroup=@vimOperGroup' +
             # ' nextgroup=@vimFilter' +
             # ' nextgroup=@vimOperGroup,@vimFilter' +
             # ' nextgroup=@vimSep,@vimString' +
@@ -108,9 +109,9 @@ class Source(Base):
             # r'syntax match vimNumber /\d\+\(\.\d\+\)\+\(\s|$\)/'
             r'syntax match vimNumber /\d\+\(\.\d\+\)\+\ze$/'
         )
-        # self.vim.command(syn_var_name)
-        # self.vim.command(syn_hash_num)
-        # self.vim.command(syn_dot_num)
+        self.vim.command(syn_var_name)
+        self.vim.command(syn_hash_num)
+        self.vim.command(syn_dot_num)
 
         # self.vim.command(syn_oper_group_new_end)
         # self.vim.command(syn_string_new_end_single)
