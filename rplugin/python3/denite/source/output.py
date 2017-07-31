@@ -72,7 +72,8 @@ class Source(Base):
         self.vim.command('syntax include syntax/vim.vim')
         syn_var_name = (
             # 'syntax match vimVar /^\h[a-zA-Z0-9#_]*\>/' +
-            r'syntax match vimVar /^\s*\S\+\ze /'
+            r'syntax match vimVar /^\s*\S\+\ze /' +
+            ' nextgroup=allThings' +
             # r'syntax match allThings /.*/' +
             # ' contains=@vimOperGroup' +
             # ' nextgroup=@vimOperGroup' +
@@ -81,13 +82,14 @@ class Source(Base):
             # ' nextgroup=@vimOperGroup,@vimFilter' +
             # ' nextgroup=@vimSep,@vimString' +
             # ' nextgroup=@vimFuncBodyList,@vimFuncList' +
-            # ' skipwhite'
+            ' skipwhite'
         )
 
         # is there a more elegant way to do an include like this?
         syn_include = (
             r'syntax match allThings /.*/' +
-            ' contains=vimVar,@vimNumber,@vimOperGroup'
+            ' contains=@vimNumber,@vimOperGroup' +
+            ' contained'
         )
 
         # syn_cluster = (
