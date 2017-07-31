@@ -75,7 +75,7 @@ class Source(Base):
             ' skipwhite'
         )
 
-        to avoid trying to match over multiple lines/results
+        # to avoid trying to match over multiple lines/results
         syn_oper_group_new_end = (
             r'syntax region vimOperGroup start=/{/ end=/}/ end=/$/'
         )
