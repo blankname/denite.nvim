@@ -75,7 +75,7 @@ class Source(Base):
             # r'syntax match vimVar /^\s*\S\+\ze /' +
             r'syntax match vimVar /^\s*\S\+/' +
             # ' nextgroup=allThings' +
-            ' nextgroup=@vimNumber,@vimOperGroup' +
+            # ' nextgroup=@vimNumber,@vimOperGroup' +
             # r'syntax match allThings /.*/' +
             # ' contains=@vimOperGroup' +
             # ' nextgroup=@vimOperGroup' +
@@ -89,11 +89,11 @@ class Source(Base):
 
         # is there a more elegant way to do an include like this?
         # why isn't vimFuncName working
-        # syn_include = (
-        #     r'syntax match allThings /.*/' +
-        #     ' contains=@vimNumber,@vimOperGroup,vimFuncName' +
-        #     ' contained'
-        # )
+        syn_include = (
+            r'syntax match allThings /.*/' +
+            ' contains=@vimNumber,@vimOperGroup,vimFuncName' +
+            ' contained'
+        )
 
         # syn_cluster = (
         #     'syntax cluster vimOperGroup contains=@vimOperGroup'
@@ -124,7 +124,7 @@ class Source(Base):
             r'syntax match vimNumber /\d\+\(\.\d\+\)\+\ze$/'
         )
         self.vim.command(syn_var_name)
-        # self.vim.command(syn_include)
+        self.vim.command(syn_include)
         self.vim.command(syn_hash_num)
         self.vim.command(syn_dot_num)
 
