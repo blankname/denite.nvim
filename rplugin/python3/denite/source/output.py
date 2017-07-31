@@ -118,9 +118,9 @@ class Source(Base):
         #     r'syntax region vimString start=/"/ end=/"/ end=/$/'
         # )
 
-        syn_string = (
-            r'syntax region start
-        )
+        # syn_string = (
+        #     r'syntax region start
+        # )
 
         syn_hash_num = (
             # r'syntax match vimNumber /#-\?\d\+\(\s|$\)/'
