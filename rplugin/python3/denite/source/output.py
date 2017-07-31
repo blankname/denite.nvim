@@ -72,8 +72,11 @@ class Source(Base):
         self.vim.command('syntax include syntax/vim.vim')
         syn_var_name = (
             # 'syntax match vimVar /^\h[a-zA-Z0-9#_]*\>/' +
-            r'syntax match vimVar /^\s*\S\+\ze /' +
-            ' nextgroup=@vimOperGroup' +
+            # r'syntax match vimVar /^\s*\S\+\ze /' +
+            r'syntax match deniteAllThings /*/' +
+            ' contains=@vimOperParen' +
+            # ' nextgroup=@vimOperParen' +
+            # ' nextgroup=@vimOperGroup' +
             # ' nextgroup=@vimFilter' +
             # ' nextgroup=@vimOperGroup,@vimFilter' +
             # ' nextgroup=@vimSep,@vimString' +
@@ -81,10 +84,10 @@ class Source(Base):
             ' skipwhite'
         )
 
-        syn_cluster = (
-            'syntax cluster vimOperGroup'
-        )
-        self.vim.command(syn_cluster)
+        # syn_cluster = (
+        #     'syntax cluster vimOperGroup contains=@vimOperGroup'
+        # )
+        # self.vim.command(syn_cluster)
 
         # to avoid trying to match over multiple lines/results
         # syn_oper_group_new_end = (
