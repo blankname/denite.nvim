@@ -86,9 +86,10 @@ class Source(Base):
         )
 
         # is there a more elegant way to do an include like this?
+        # why isn't vimFuncName working
         syn_include = (
             r'syntax match allThings /.*/' +
-            ' contains=@vimFuncName,@vimNumber,@vimOperGroup' +
+            ' contains=@vimNumber,@vimOperGroup,@vimFuncName' +
             ' contained'
         )
 
