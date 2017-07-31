@@ -75,7 +75,7 @@ class Source(Base):
             # r'syntax match vimVar /^\s*\S\+\ze /' +
             r'syntax match vimVar /^\s*\S\+/' +
             # ' nextgroup=allThings' +
-            ' nextgroup=@vimNumber' +
+            ' nextgroup=@vimNumber,@vimString' +
             # ' nextgroup=@vimNumber,@vimOperGroup' +
             # r'syntax match allThings /.*/' +
             # ' contains=@vimOperGroup' +
