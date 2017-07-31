@@ -81,10 +81,10 @@ class Source(Base):
             # ' skipwhite'
         )
 
-        syn_cluster = (
-            'syntax cluster vimOperGroup contains=@vimOperGroup'
-        )
-        self.vim.command(syn_cluster)
+        # syn_cluster = (
+        #     'syntax cluster vimOperGroup contains=@vimOperGroup'
+        # )
+        # self.vim.command(syn_cluster)
 
         # to avoid trying to match over multiple lines/results
         # syn_oper_group_new_end = (
