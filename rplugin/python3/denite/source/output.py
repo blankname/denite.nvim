@@ -96,6 +96,7 @@ class Source(Base):
         )
         self.vim.command(syn_var_name)
         self.vim.command(syn_oper_group_new_end)
+        self.vim.command(syn_string_new_end)
         self.vim.command(syn_hash_num)
         self.vim.command(syn_dot_num)
 
