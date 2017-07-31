@@ -105,6 +105,7 @@ class Source(Base):
         # self.vim.command(syn_string_new_end_double)
         self.vim.command(syn_hash_num)
         self.vim.command(syn_dot_num)
+        self.vim.command('syntax match LonelyQuote /\'/')
 
         # let_hi = (
         #     # 'syntax cluster deniteSource_outputLetCluster' +
