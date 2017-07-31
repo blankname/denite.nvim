@@ -76,7 +76,7 @@ class Source(Base):
         )
         # to avoid trying to match over multiple lines/results
         syn_oper_group_new_end = (
-            r'syntax region vimOperGroup end=/$/'
+            r'syntax region vimOperGroup start=/{/ end=/$/'
         )
         syn_hash_num = (
             # r'syntax match vimNumber /#-\?\d\+\(\s|$\)/'
