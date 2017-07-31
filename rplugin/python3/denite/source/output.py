@@ -75,6 +75,7 @@ class Source(Base):
             # r'syntax match vimVar /^\s*\S\+\ze /' +
             r'syntax match vimVar /^\s*\S\+/' +
             # ' nextgroup=allThings' +
+            ' contains=@vimString' +
             ' nextgroup=@vimNumber,@vimString' +
             # ' nextgroup=@vimNumber,@vimOperGroup' +
             # r'syntax match allThings /.*/' +
@@ -116,6 +117,10 @@ class Source(Base):
         # syn_string_new_end_double = (
         #     r'syntax region vimString start=/"/ end=/"/ end=/$/'
         # )
+
+        syn_string = (
+            r'syntax region start
+        )
 
         syn_hash_num = (
             # r'syntax match vimNumber /#-\?\d\+\(\s|$\)/'
