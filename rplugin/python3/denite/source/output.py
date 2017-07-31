@@ -75,7 +75,7 @@ class Source(Base):
             # r'syntax match vimVar /^\s*\S\+\ze /' +
             r'syntax match vimVar /^\s*\S\+/' +
             # ' nextgroup=allThings' +
-            ' nextgroup=@vimNumber,@vimGroup' +
+            ' nextgroup=@vimNumber,vimString' +
             # ' nextgroup=@vimNumber,@vimOperGroup' +
             # r'syntax match allThings /.*/' +
             # ' contains=@vimOperGroup' +
@@ -89,6 +89,14 @@ class Source(Base):
             ' skipwhite'
         )
 
+            # syn region	vimString	oneline keepend	start=+[^:a-zA-Z>!\\@]"+lc=1 skip=+\\\\\|\\"+ end=+"+	contains=@vimStringGroup
+        syn_string = (
+            r"syn region" +
+            r" vimString oneline keepend start=+[^:a-zA-Z>!\\@]'+lc=1 end=+'+"
+        )
+
+        self.vim.command(syn_string)
+        # self.vim.command('hi link vimString String')
         # is there a more elegant way to do an include like this?
         # why isn't vimFuncName working
         # syn_include = (
