@@ -77,7 +77,7 @@ class Source(Base):
 
         # to avoid trying to match over multiple lines/results
         syn_oper_group_new_end = (
-            r'syntax region vimOperGroup start=/{/ end=/}/ end=/$/'
+            r'syntax region vimOperGroup oneline start=/{/ end=/}/ end=/$/'
         )
         # syn_string_new_end_single = (
         #     r'syntax region vimString start=/\'/ end=/\'/ end=/$/'
