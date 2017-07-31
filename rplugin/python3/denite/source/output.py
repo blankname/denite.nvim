@@ -84,6 +84,7 @@ class Source(Base):
             # ' nextgroup=@vimOperGroup,@vimFilter' +
             # ' nextgroup=@vimSep,@vimString' +
             # ' nextgroup=@vimFuncBodyList,@vimFuncList' +
+            # ' oneline' +
             ' skipwhite'
         )
 
@@ -92,7 +93,7 @@ class Source(Base):
         syn_include = (
             r'syntax match allThings /.*/' +
             ' contains=@vimNumber,@vimOperGroup' +
-            ' oneline'
+            ' oneline' +
             ' contained'
         )
 
