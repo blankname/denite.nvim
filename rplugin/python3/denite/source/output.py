@@ -70,7 +70,6 @@ class Source(Base):
         syn_var_name = (
             r'syntax match vimVar /^\s*\S\+/' +
             ' nextgroup=deniteSource_outputLetAll'
-            # ' skipwhite'
         )
 
         # FIXME:
@@ -85,9 +84,7 @@ class Source(Base):
         # can't get vimFuncName highlighting working
         syn_include = (
             r'syntax match deniteSource_outputLetAll /.*/' +
-            # ' contains=@vimNumber,@vimOperGroup' +
-            ' contains=vimStringGroup' +
-            # ' contains=@vimNumber,@vimStringGroup' +
+            ' contains=@vimNumber,@vimOperGroup' +
             ' contained'
         )
 
