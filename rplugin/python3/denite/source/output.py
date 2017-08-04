@@ -86,7 +86,7 @@ class Source(Base):
         syn_include = (
             r'syntax match deniteSource_outputLetAll /.*/' +
             # ' contains=@vimNumber,@vimOperGroup' +
-            ' contains=@vimStringGroup' +
+            ' contains=vimStringGroup' +
             # ' contains=@vimNumber,@vimStringGroup' +
             ' contained'
         )
