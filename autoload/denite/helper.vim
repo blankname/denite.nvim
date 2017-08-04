@@ -79,14 +79,17 @@ function! denite#helper#_parse_options_args(cmdline) abort
   let [args, options] = s:parse_options(a:cmdline)
 
   for arg in args
+    echom 'arg: ' . arg
     " Add source name.
     let source_name = matchstr(arg, '^[^:]*')
+    echom 'source_name: ' . source_name
     let source_arg = arg[len(source_name)+1 :]
     let source_args = []
     if source_arg !=# ''
       for s in split(source_arg, s:re_unquoted_match('\\\@<!:'), 1)
         let s = substitute(s, '\\\(.\)', '\\1', 'g')
 
+        echom 's: ' . s
         " remove leading/ending quote pairs
         if s[0] ==# '"' && s[len(s) - 1] ==# '"'
           let s = s[1: len(s) - 2]
