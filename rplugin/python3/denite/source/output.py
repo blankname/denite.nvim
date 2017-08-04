@@ -85,7 +85,8 @@ class Source(Base):
         # can't get vimFuncName highlighting working
         syn_include = (
             r'syntax match deniteSource_outputLetAll /.*/' +
-            ' contains=@vimNumber,@vimOperGroup' +
+            # ' contains=@vimNumber,@vimOperGroup' +
+            ' contains=@vimNumber,@vimString' +
             ' contained'
         )
 
