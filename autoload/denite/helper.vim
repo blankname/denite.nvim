@@ -87,7 +87,7 @@ function! denite#helper#_parse_options_args(cmdline) abort
     let source_args = []
     if source_arg !=# ''
       for s in split(source_arg, s:re_unquoted_match('\\\@<!:'), 1)
-        let s = substitute(s, '\\\(.\)', '\\1', 'g')
+        let s = substitute(s, '\\\(.\)', "\\1", 'g')
 
         echom 's: ' . s
         " remove leading/ending quote pairs
