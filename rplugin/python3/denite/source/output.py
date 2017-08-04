@@ -69,8 +69,8 @@ class Source(Base):
         self.vim.command('syntax include syntax/vim.vim')
         syn_var_name = (
             r'syntax match vimVar /^\s*\S\+/' +
-            ' nextgroup=deniteSource_outputLetAll' +
-            ' skipwhite'
+            ' nextgroup=deniteSource_outputLetAll'
+            # ' skipwhite'
         )
 
         # FIXME:
