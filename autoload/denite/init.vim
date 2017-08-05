@@ -90,7 +90,7 @@ function! denite#init#_user_options() abort
         \ 'immediately': v:false,
         \ 'immediately_1': v:false,
         \ 'input': '',
-        \ 'line-wrap': v:false,
+        \ 'line_wrap': v:false,
         \ 'matchers': '',
         \ 'max_candidate_width': 200,
         \ 'mode': '',
