@@ -73,6 +73,7 @@ class Source(Base):
         )
 
         # FIXME:
+        #  see about commenting out the syntax stuff in ui/default.py and see if that helps with highlighting (looking for interference)
         # is there a more elegant way to do an include like this?
         #
         # why doesn't it work for me to just have vimNumber and vimOperGroup
