@@ -193,7 +193,7 @@ class Default(object):
             'number': False,
             'relativenumber': False,
             'winfixheight': True,
-            'wrap': self._options['line-wrap'],
+            'wrap': self._context['line-wrap'],
         }
         if self._context['cursorline']:
             window_options['cursorline'] = True
