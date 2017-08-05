@@ -197,7 +197,7 @@ class Default(object):
         }
         if self._context['cursorline']:
             window_options['cursorline'] = True
-        if self._contentext['line_wrap']:
+        if self._context['line_wrap']:
             window_options['wrap'] = True
         self._save_window_options = {}
         for k, v in window_options.items():
