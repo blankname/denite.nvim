@@ -193,10 +193,12 @@ class Default(object):
             'number': False,
             'relativenumber': False,
             'winfixheight': True,
-            'wrap': self._context['line_wrap'],
+            'wrap': False,
         }
         if self._context['cursorline']:
             window_options['cursorline'] = True
+        if self._contentext['line_wrap']:
+            window_options['wrap'] = True
         self._save_window_options = {}
         for k, v in window_options.items():
             self._save_window_options[k] = self._window_options[k]
